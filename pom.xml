@@ -5,7 +5,7 @@
 
 	<groupId>ir.omidashouri</groupId>
 	<artifactId>omid-pet-clinic</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>omid-pet-clinic</name>
 	<description>omid ashouri pet project</description>
 
