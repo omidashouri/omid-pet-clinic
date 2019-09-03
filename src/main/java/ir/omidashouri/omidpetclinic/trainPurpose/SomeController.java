@@ -1,4 +1,4 @@
-package ir.omidashouri.omidpetclinic;
+package ir.omidashouri.omidpetclinic.trainPurpose;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
