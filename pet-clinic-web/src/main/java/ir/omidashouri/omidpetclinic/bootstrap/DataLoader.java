@@ -6,8 +6,7 @@ import ir.omidashouri.omidpetclinic.model.PetType;
 import ir.omidashouri.omidpetclinic.model.Vet;
 import ir.omidashouri.omidpetclinic.services.OwnerService;
 import ir.omidashouri.omidpetclinic.services.VetService;
-import ir.omidashouri.omidpetclinic.services.map.OwnerServiceMap;
-import ir.omidashouri.omidpetclinic.services.map.VetServiceMap;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,10 +16,12 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final OwnerService ownerService;
 
-    public DataLoader() {
-        this.vetService = new VetServiceMap();
-        this.ownerService = new OwnerServiceMap();
+    @Autowired
+    public DataLoader(VetService vetService, OwnerService ownerService) {
+        this.vetService = vetService;
+        this.ownerService = ownerService;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
