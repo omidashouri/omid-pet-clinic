@@ -2,6 +2,6 @@ package ir.omidashouri.omidpetclinic.services;
 
 import ir.omidashouri.omidpetclinic.model.PetType;
 
-public interface PetTypeServce extends CrudService<PetType, Long> {
+public interface PetTypeService extends CrudService<PetType, Long> {
 
 }

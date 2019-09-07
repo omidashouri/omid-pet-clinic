@@ -1,14 +1,13 @@
 package ir.omidashouri.omidpetclinic.services.map;
 
 import ir.omidashouri.omidpetclinic.model.PetType;
-import ir.omidashouri.omidpetclinic.services.PetTypeServce;
+import ir.omidashouri.omidpetclinic.services.PetTypeService;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 @Service
-public class PetTypeMapService extends AbstractMapService<PetType,Long> implements PetTypeServce {
+public class PetTypeMapService extends AbstractMapService<PetType,Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {
         return super.findAll();

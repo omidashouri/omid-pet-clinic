@@ -5,6 +5,7 @@ import ir.omidashouri.omidpetclinic.model.Pet;
 import ir.omidashouri.omidpetclinic.model.PetType;
 import ir.omidashouri.omidpetclinic.model.Vet;
 import ir.omidashouri.omidpetclinic.services.OwnerService;
+import ir.omidashouri.omidpetclinic.services.PetTypeService;
 import ir.omidashouri.omidpetclinic.services.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,11 +16,13 @@ public class DataLoader implements CommandLineRunner {
 
     private final VetService vetService;
     private final OwnerService ownerService;
+    private final PetTypeService petTypeService;
 
     @Autowired
-    public DataLoader(VetService vetService, OwnerService ownerService) {
+    public DataLoader(VetService vetService, OwnerService ownerService, PetTypeService petTypeServce) {
         this.vetService = vetService;
         this.ownerService = ownerService;
+        this.petTypeService = petTypeServce;
     }
 
 
@@ -36,11 +39,11 @@ public class DataLoader implements CommandLineRunner {
     private void loadData() {
         PetType dog = new PetType();
         dog.setName("Dog");
-//        PetType savedDogPetType = petTypeService.save(dog);
+        PetType savedDogPetType = petTypeService.save(dog);
 
         PetType cat = new PetType();
         cat.setName("Cat");
-//        PetType savedCatPetType = petTypeService.save(cat);
+        PetType savedCatPetType = petTypeService.save(cat);
 
 /*        Speciality radiology = new Speciality();
         radiology.setDescription("Radiology");
