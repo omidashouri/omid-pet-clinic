@@ -4,18 +4,21 @@ import ir.omidashouri.omidpetclinic.model.Pet;
 import ir.omidashouri.omidpetclinic.repositories.PetRepository;
 import ir.omidashouri.omidpetclinic.services.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
+@Profile("springdatajpa")
 public class PetSDJpaService implements PetService {
+
+    private final PetRepository petRepository;
 
     @Autowired
     public PetSDJpaService(PetRepository petRepository) {
         this.petRepository = petRepository;
     }
-
-    private final PetRepository petRepository;
 
 
     @Override
