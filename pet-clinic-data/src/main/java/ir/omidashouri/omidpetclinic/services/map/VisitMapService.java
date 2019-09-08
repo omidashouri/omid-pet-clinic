@@ -4,11 +4,13 @@ import ir.omidashouri.omidpetclinic.model.Visit;
 import ir.omidashouri.omidpetclinic.services.PetService;
 import ir.omidashouri.omidpetclinic.services.VisitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     private final PetService petService;
