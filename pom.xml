@@ -81,7 +81,8 @@
 					</checkModificationExcludes>-->
 				</configuration>
 			</plugin>
-			<!--:>        add junit five & JAVA ELEVEN  -->
+			<!--:>        add junit five & JAVA ELEVEN -->
+			<!--        add 2.22.0 because maven version 3.3.9 which we are using have surefire with version 2.18.1 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
