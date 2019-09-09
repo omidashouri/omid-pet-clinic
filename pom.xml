@@ -24,14 +24,35 @@
 
 
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>11</java.version>
-		<!--		Add for Java 11 - repackage: error unable to find main class	-->
-		<spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+		<jaxb.version>2.3.0</jaxb.version>
+		<!--:> JAVA ELEVEN use for maven to use java eleven		-->
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<!--<: JAVA ELEVEN use for maven to use java eleven		-->
 	</properties>
 
 	<dependencies>
-
-<!--		disabled added by meself-->
+		<!--:>		Add for JAVA ELEVEN : hibernate tools need these jar files -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+		<!--<:		Add for JAVA ELEVEN : hibernate tools need these jar files -->
+<!--		disabled added by myself -->
 <!--		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
@@ -54,13 +75,45 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<configuration>
 					<goals>install</goals>
-					<checkModificationExcludes>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+<!--					<checkModificationExcludes>
 						<checkModificationExclude>pom.xml</checkModificationExclude>
-					</checkModificationExcludes>
+					</checkModificationExcludes>-->
 				</configuration>
 			</plugin>
+			<!--:>        add junit five & JAVA ELEVEN  -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<argLine>
+						--illegal-access=permit
+					</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<argLine>
+						--illegal-access=permit
+					</argLine>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!--<:        add junit five & JAVA ELEVEN  -->
 		</plugins>
 	</build>
+
 <!--	use for maven-release-plugin -->
 	<scm>
 		<developerConnection>scm:git:https://github.com/omidashouri/omid-pet-clinic.git</developerConnection>
